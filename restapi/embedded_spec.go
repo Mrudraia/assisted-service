@@ -7131,6 +7131,13 @@ func init() {
       },
       "x-go-custom-tag": "gorm:\"embedded;embeddedPrefix:progress_\""
     },
+    "host-requested-odf-mode": {
+      "type": "string",
+      "enum": [
+        "enable(default)",
+        "disable"
+      ]
+    },
     "host-role": {
       "type": "string",
       "enum": [
@@ -16347,6 +16354,13 @@ func init() {
         }
       },
       "x-go-custom-tag": "gorm:\"embedded;embeddedPrefix:progress_\""
+    },
+    "host-requested-odf-mode": {
+      "type": "string",
+      "enum": [
+        "enable(default)",
+        "disable"
+      ]
     },
     "host-role": {
       "type": "string",

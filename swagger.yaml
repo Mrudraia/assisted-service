@@ -5627,6 +5627,12 @@ definitions:
       - 'worker'
       - 'bootstrap'
 
+  host-requested-odf-mode:
+    type: string
+    enum:
+      - 'enable(default)'
+      - 'disable'
+
   host-validation-id:
     type: string
     enum:
