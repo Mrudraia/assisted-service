@@ -15,6 +15,8 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
+	"github.com/openshift/assisted-service/internal/common"
+	"github.com/openshift/assisted-service/models"
 	"gorm.io/gorm"
 )
 
@@ -837,4 +839,40 @@ func (m *Host) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+
+func (m *Host) UpdateNodeLabels(ctx context.Context, cluster *common.Cluster) error {
+	numOfHosts := len(cluster.Hosts)
+	if odf_mode == "enabled"{
+		if numOfHosts <= 6 {
+			 
+		}
+	}
+
+
+// 	If odf_mode == “enabled”:
+// If num_of_hosts < 6:  ## compact mode
+//     If host.GetEffectiveRole == models.HostRoleMaster:        
+//        Host.label_node {
+//                   odf_mode = “enabledForced”
+//              }
+//     If host.GetEffectiveRole == models.HostRoleWorker:
+//        Host.label_node{
+//                   odf_mode =”disabledForced”
+//              }
+
+// If num_of_hosts >= 6: ## standard mode
+//     If host.GetEffectiveRole == models.HostRoleMaster:
+//         Host.label_node {
+//                  odf_mode = “disabledForced”
+//               }
+//     If host.GetEffectiveRole == models.HostRoleWorker:
+//       If num_of_enabled_hosts <= 4 {
+//    Odf_mode = "enabledForced"
+// } else {
+//    odf_mode = requested_odf_mode
+// }
+
+
 }
